@@ -21,14 +21,12 @@ import android.net.nsd.NsdServiceInfo;
 
 @Kroll.module(name = "Networkservicediscovery", id = "de.appwerft.networkservicediscovery")
 public class NetworkservicediscoveryModule extends KrollModule {
-
-	// Standard Debugging variables
 	private static final String LCAT = "BONJOUR 😈";
 	Context ctx;
 	NsdManager nsdManager;
 	private KrollFunction onFoundCallback = null;
 	private KrollFunction onLostCallback = null;
-	String SERVICE_TYPE;
+	String dnsType;
 	// You can define constants with @Kroll.constant, for example:
 	@Kroll.constant
 	public static final String TYPE_AIRLINO = "_dockset._tcp";
@@ -55,7 +53,7 @@ public class NetworkservicediscoveryModule extends KrollModule {
 		Object fcallback;
 		Object lcallback;
 		if (opt.containsKeyAndNotNull("dnsType")) {
-			SERVICE_TYPE = opt.getString("dnsType");
+			dnsType = opt.getString("dnsType");
 		}
 		if (opt.containsKeyAndNotNull("onFound")) {
 			fcallback = opt.get("onFound");
@@ -75,10 +73,8 @@ public class NetworkservicediscoveryModule extends KrollModule {
 	public void initializeDiscoveryListener() {
 		ctx = TiApplication.getInstance().getApplicationContext();
 		nsdManager = (NsdManager) ctx.getSystemService(Context.NSD_SERVICE);
-
 		Log.d(LCAT, "initializeDiscoveryListener = " + nsdManager.toString());
-		@SuppressWarnings("unused")
-		NsdManager.DiscoveryListener discoveryListener = new NsdManager.DiscoveryListener() {
+		NsdManager.DiscoveryListener discListener = new NsdManager.DiscoveryListener() {
 			@Override
 			public void onDiscoveryStarted(String regType) {
 				Log.d(LCAT, "Service discovery started");
@@ -95,12 +91,10 @@ public class NetworkservicediscoveryModule extends KrollModule {
 				Log.d(LCAT, dict.toString());
 				if (onFoundCallback != null)
 					onFoundCallback.call(getKrollObject(), dict);
-
 			}
 
 			@Override
 			public void onServiceLost(NsdServiceInfo service) {
-				// A service was found! Do something with it.
 				KrollDict dict = new KrollDict();
 				dict.put("ip", service.getHost().getHostAddress());
 				dict.put("port", service.getPort());
@@ -128,24 +122,4 @@ public class NetworkservicediscoveryModule extends KrollModule {
 			}
 		};
 	}
-
-	// Methods
-	@Kroll.method
-	public String example() {
-		Log.d(LCAT, "example called");
-		return "hello world";
-	}
-
-	// Properties
-	@Kroll.getProperty
-	public String getExampleProp() {
-		Log.d(LCAT, "get example property");
-		return "hello world";
-	}
-
-	@Kroll.setProperty
-	public void setExampleProp(String value) {
-		Log.d(LCAT, "set example property: " + value);
-	}
-
 }
