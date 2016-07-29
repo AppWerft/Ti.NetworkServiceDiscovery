@@ -108,7 +108,8 @@ public class NetworkservicediscoveryModule extends KrollModule {
 			public void onServiceFound(NsdServiceInfo service) {
 				nsdManager.resolveService(service, resolveListener);
 			}
-
+			
+			
 			@Override
 			public void onServiceLost(NsdServiceInfo service) {
 				if (onLostCallback != null)
