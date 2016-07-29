@@ -7,13 +7,16 @@ Titanium module for exposing Androids NSD (Bonjour)
 ##Usage
 ```javascript
 var Bonjour=require("de.appwerft.networkservicediscovery");
-Bonjour.start({
-    dnsType:Bonjour.TYPE_AIRLINO,
+Bonjour.start
+    dnsType:Bonjour.TYPE_GOOGLECAST,
     onFound: function(_e) {
+     // {"name":"Elysium","ip":"192.168.178.100","port":8009,"type":"._googlecast._tcp"}
     },
     onLost: function(_e) {
 
     }
 });
+
+Bonjour.stop();
 
 ```
