@@ -100,13 +100,12 @@
  /Users/fuerst/Library/android-ndk-macosx/sources/cxx-stl/stlport/stlport/stl/_bvector.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/V8Util.h \
  jni/../BootstrapJS.cpp jni/../KrollGeneratedBindings.cpp \
- jni/de.appwerft.networkservicediscovery.ExampleProxy.h \
+ jni/de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/Proxy.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/JavaObject.h \
  /Users/fuerst/Library/android-ndk-macosx/sources/cxx-stl/stlport/stlport/assert.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/EventEmitter.h \
- /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/NativeObject.h \
- jni/de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h
+ /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/NativeObject.h
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/v8.h:
 
@@ -310,7 +309,7 @@ jni/../BootstrapJS.cpp:
 
 jni/../KrollGeneratedBindings.cpp:
 
-jni/de.appwerft.networkservicediscovery.ExampleProxy.h:
+jni/de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h:
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/Proxy.h:
 
@@ -321,5 +320,3 @@ jni/de.appwerft.networkservicediscovery.ExampleProxy.h:
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/EventEmitter.h:
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/NativeObject.h:
-
-jni/de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h:

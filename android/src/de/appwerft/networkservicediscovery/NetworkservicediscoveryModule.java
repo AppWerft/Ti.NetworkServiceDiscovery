@@ -8,6 +8,8 @@
  */
 package de.appwerft.networkservicediscovery;
 
+import java.net.InetAddress;
+
 import org.appcelerator.kroll.KrollDict;
 import org.appcelerator.kroll.KrollFunction;
 import org.appcelerator.kroll.KrollModule;
@@ -29,11 +31,13 @@ public class NetworkservicediscoveryModule extends KrollModule {
 	String dnsType;
 	// You can define constants with @Kroll.constant, for example:
 	@Kroll.constant
-	public static final String TYPE_AIRLINO = "_dockset._tcp";
+	public static final String TYPE_AIRLINO = "_dockset._tcp.";
 	@Kroll.constant
-	public static final String TYPE_HTTP = "_http._tcp";
+	public static final String TYPE_HTTP = "_http._tcp.";
 	@Kroll.constant
-	public static final String TYPE_PRINTER = "_ipp._tcp";
+	public static final String TYPE_INTERNET_PRINTING_PROTOCOL = "_ipp._tcp.";
+	@Kroll.constant
+	public static final String TYPE_GOOGLECAST = "_googlecast._tcp.";
 
 	public NetworkservicediscoveryModule() {
 		super();
@@ -70,10 +74,11 @@ public class NetworkservicediscoveryModule extends KrollModule {
 		this.initializeDiscoveryListener();
 	}
 
-	public void initializeDiscoveryListener() {
+	private void initializeDiscoveryListener() {
 		ctx = TiApplication.getInstance().getApplicationContext();
 		nsdManager = (NsdManager) ctx.getSystemService(Context.NSD_SERVICE);
 		Log.d(LCAT, "initializeDiscoveryListener = " + nsdManager.toString());
+
 		NsdManager.DiscoveryListener discListener = new NsdManager.DiscoveryListener() {
 			@Override
 			public void onDiscoveryStarted(String regType) {
@@ -82,26 +87,16 @@ public class NetworkservicediscoveryModule extends KrollModule {
 
 			@Override
 			public void onServiceFound(NsdServiceInfo service) {
-				// A service was found! Do something with it.
-				KrollDict dict = new KrollDict();
-				Log.d(LCAT, "Service discovery success" + service);
-				dict.put("ip", service.getHost().getHostAddress());
-				dict.put("port", service.getPort());
-				dict.put("name", service.getServiceName());
-				Log.d(LCAT, dict.toString());
 				if (onFoundCallback != null)
-					onFoundCallback.call(getKrollObject(), dict);
+					onFoundCallback.call(getKrollObject(),
+							parseNsdServiceInfo(service));
 			}
 
 			@Override
 			public void onServiceLost(NsdServiceInfo service) {
-				KrollDict dict = new KrollDict();
-				dict.put("ip", service.getHost().getHostAddress());
-				dict.put("port", service.getPort());
-				dict.put("name", service.getServiceName());
-				Log.d(LCAT, dict.toString());
 				if (onLostCallback != null)
-					onLostCallback.call(getKrollObject(), dict);
+					onLostCallback.call(getKrollObject(),
+							parseNsdServiceInfo(service));
 			}
 
 			@Override
@@ -121,5 +116,21 @@ public class NetworkservicediscoveryModule extends KrollModule {
 				nsdManager.stopServiceDiscovery(this);
 			}
 		};
+		nsdManager.discoverServices(dnsType, NsdManager.PROTOCOL_DNS_SD,
+				discListener);
+
+	}
+
+	private KrollDict parseNsdServiceInfo(NsdServiceInfo so) {
+		KrollDict dict = new KrollDict();
+		InetAddress address = so.getHost();
+		if (address != null) {
+			dict.put("ip", address.getHostAddress());
+		}
+		dict.put("port", so.getPort());
+		dict.put("name", so.getServiceName());
+		Log.d(LCAT, dict.toString());
+
+		return dict;
 	}
 }

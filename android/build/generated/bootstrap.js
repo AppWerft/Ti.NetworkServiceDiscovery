@@ -24,25 +24,8 @@ function moduleBootstrap(moduleBinding) {
 		invocationAPIs.push({ namespace: namespace, api: api });
 	}
 
-		addInvocationAPI(module, "Networkservicediscovery", "Networkservicediscovery", "createExample");
-
-			if (!("__propertiesDefined__" in module)) {		
-		Object.defineProperties(module, {
-			"Example": {
-				get: function() {
-					var Example = lazyGet(this, "de.appwerft.networkservicediscovery.ExampleProxy", "Example", "Example");
-					return Example;
-				},
-				configurable: true
-			},
-		
-		});
-		module.constructor.prototype.createExample = function() {
-			return new module.Example(arguments);
-		}
-		}
-		module.__propertiesDefined__ = true;
-		return module;
+	
+			return module;
 
 }
 exports.bootstrap = moduleBootstrap;

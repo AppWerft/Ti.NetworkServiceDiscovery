@@ -9,13 +9,12 @@
 #include <v8.h>
 #include <KrollBindings.h>
 
-#include "de.appwerft.networkservicediscovery.ExampleProxy.h"
 #include "de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h"
 
 
-#line 14 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
+#line 13 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
 struct titanium::bindings::BindEntry;
-/* maximum key range = 18, duplicates = 0 */
+/* maximum key range = 1, duplicates = 0 */
 
 class NetworkservicediscoveryBindings
 {
@@ -37,10 +36,10 @@ NetworkservicediscoveryBindings::lookupGeneratedInit (register const char *str, 
 {
   enum
     {
-      TOTAL_KEYWORDS = 2,
-      MIN_WORD_LENGTH = 48,
+      TOTAL_KEYWORDS = 1,
+      MIN_WORD_LENGTH = 65,
       MAX_WORD_LENGTH = 65,
-      MIN_HASH_VALUE = 48,
+      MIN_HASH_VALUE = 65,
       MAX_HASH_VALUE = 65
     };
 
@@ -51,12 +50,10 @@ NetworkservicediscoveryBindings::lookupGeneratedInit (register const char *str, 
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
-      {""}, {""}, {""},
-#line 16 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
-      {"de.appwerft.networkservicediscovery.ExampleProxy", ::de::appwerft::networkservicediscovery::networkservicediscovery::ExampleProxy::bindProxy, ::de::appwerft::networkservicediscovery::networkservicediscovery::ExampleProxy::dispose},
       {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
-      {""}, {""}, {""}, {""}, {""}, {""}, {""},
-#line 17 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
+      {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""}, {""},
+      {""}, {""},
+#line 15 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
       {"de.appwerft.networkservicediscovery.NetworkservicediscoveryModule", ::de::appwerft::networkservicediscovery::NetworkservicediscoveryModule::bindProxy, ::de::appwerft::networkservicediscovery::NetworkservicediscoveryModule::dispose}
     };
 
@@ -74,5 +71,5 @@ NetworkservicediscoveryBindings::lookupGeneratedInit (register const char *str, 
     }
   return 0;
 }
-#line 18 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
+#line 16 "/private/var/folders/25/yvdn9h053sv3htdkzq8558k40000gn/T/fuerst/Networkservicediscovery-generated/KrollGeneratedBindings.gperf"
 

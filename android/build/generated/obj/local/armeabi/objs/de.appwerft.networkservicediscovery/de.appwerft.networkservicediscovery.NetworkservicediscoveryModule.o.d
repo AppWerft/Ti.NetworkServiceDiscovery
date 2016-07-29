@@ -19,7 +19,6 @@
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/ProxyFactory.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/TypeConverter.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/V8Util.h \
- jni/de.appwerft.networkservicediscovery.ExampleProxy.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/org.appcelerator.kroll.KrollModule.h \
  /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/Proxy.h
 
@@ -60,8 +59,6 @@ jni/de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h:
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/TypeConverter.h:
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/V8Util.h:
-
-jni/de.appwerft.networkservicediscovery.ExampleProxy.h:
 
 /Users/fuerst/Library/Application\ Support/Titanium/mobilesdk/osx/5.1.0.GA/android/native/include/org.appcelerator.kroll.KrollModule.h:
 

@@ -20,7 +20,6 @@
 
 
 
-#include "de.appwerft.networkservicediscovery.ExampleProxy.h"
 
 #include "org.appcelerator.kroll.KrollModule.h"
 
@@ -108,11 +107,13 @@ Handle<FunctionTemplate> NetworkservicediscoveryModule::getProxyTemplate()
 	}
 
 
-		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_AIRLINO", "_dockset._tcp");
+		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_AIRLINO", "_dockset._tcp.");
 
-		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_HTTP", "_http._tcp");
+		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_INTERNET_PRINTING_PROTOCOL", "_ipp._tcp.");
 
-		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_PRINTER", "_ipp._tcp");
+		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_GOOGLECAST", "_googlecast._tcp.");
+
+		DEFINE_STRING_CONSTANT(prototypeTemplate, "TYPE_HTTP", "_http._tcp.");
 
 
 	// Dynamic properties -----------------------------------------------------
