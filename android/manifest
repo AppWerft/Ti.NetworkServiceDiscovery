@@ -1,0 +1,18 @@
+#
+# this is your module manifest and used by Titanium
+# during compilation, packaging, distribution, etc.
+#
+version: 1.0.0
+apiversion: 2
+architectures: armeabi armeabi-v7a x86
+description: Networkservicediscovery (BonjourBrowser)
+author: Rainer Schleevoigt
+license: Specify your license
+copyright: Copyright (c) 2016 by 
+
+# these should not be edited
+name: Networkservicediscovery
+moduleid: de.appwerft.networkservicediscovery
+guid: 338eca86-fb8d-4a4d-aabc-5f1c511d7a2e
+platform: android
+minsdk: 4.0.0.GA

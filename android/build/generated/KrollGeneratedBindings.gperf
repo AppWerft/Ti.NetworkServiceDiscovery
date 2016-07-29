@@ -1,0 +1,18 @@
+%define lookup-function-name lookupGeneratedInit
+%define class-name NetworkservicediscoveryBindings
+%{
+
+#include <string.h>
+#include <v8.h>
+#include <KrollBindings.h>
+
+#include "de.appwerft.networkservicediscovery.ExampleProxy.h"
+#include "de.appwerft.networkservicediscovery.NetworkservicediscoveryModule.h"
+
+
+%}
+struct titanium::bindings::BindEntry;
+%%
+de.appwerft.networkservicediscovery.ExampleProxy, ::de::appwerft::networkservicediscovery::networkservicediscovery::ExampleProxy::bindProxy, ::de::appwerft::networkservicediscovery::networkservicediscovery::ExampleProxy::dispose
+de.appwerft.networkservicediscovery.NetworkservicediscoveryModule, ::de::appwerft::networkservicediscovery::NetworkservicediscoveryModule::bindProxy, ::de::appwerft::networkservicediscovery::NetworkservicediscoveryModule::dispose
+%%
