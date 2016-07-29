@@ -11,6 +11,7 @@ Bonjour.start
     dnsType:Bonjour.TYPE_GOOGLECAST,
     onFound: function(_e) {
      // {"name":"Elysium","ip":"192.168.178.100","port":8009,"type":"._googlecast._tcp"}
+     // {"name":"HP Officejet Pro 8610 [5FA732]","ip":"192.168.178.38","port":80,"type":"._http._tcp"}   
     },
     onLost: function(_e) {
 
