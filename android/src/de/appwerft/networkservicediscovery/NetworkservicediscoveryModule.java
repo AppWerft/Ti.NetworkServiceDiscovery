@@ -38,9 +38,28 @@ public class NetworkservicediscoveryModule extends KrollModule {
 	public static final String TYPE_INTERNET_PRINTING_PROTOCOL = "_ipp._tcp.";
 	@Kroll.constant
 	public static final String TYPE_GOOGLECAST = "_googlecast._tcp.";
+	public NsdManager.ResolveListener resolveListener;
 
 	public NetworkservicediscoveryModule() {
 		super();
+		resolveListener = new NsdManager.ResolveListener() {
+			@Override
+			public void onResolveFailed(NsdServiceInfo serviceInfo,
+					int errorCode) {
+				// Called when the resolve fails. Use the error
+				// code to debug.
+				Log.e(LCAT, "Resolve failed" + errorCode);
+			}
+
+			@Override
+			public void onServiceResolved(NsdServiceInfo serviceInfo) {
+				Log.e(LCAT, "Resolve Succeeded. " + serviceInfo);
+				if (onFoundCallback != null)
+					onFoundCallback.call(getKrollObject(),
+							parseNsdServiceInfo(serviceInfo));
+
+			}
+		};
 	}
 
 	@Kroll.onAppCreate
@@ -87,9 +106,7 @@ public class NetworkservicediscoveryModule extends KrollModule {
 
 			@Override
 			public void onServiceFound(NsdServiceInfo service) {
-				if (onFoundCallback != null)
-					onFoundCallback.call(getKrollObject(),
-							parseNsdServiceInfo(service));
+				nsdManager.resolveService(service, resolveListener);
 			}
 
 			@Override
@@ -123,12 +140,14 @@ public class NetworkservicediscoveryModule extends KrollModule {
 
 	private KrollDict parseNsdServiceInfo(NsdServiceInfo so) {
 		KrollDict dict = new KrollDict();
+		Log.d(LCAT, so.toString());
 		InetAddress address = so.getHost();
 		if (address != null) {
 			dict.put("ip", address.getHostAddress());
 		}
 		dict.put("port", so.getPort());
 		dict.put("name", so.getServiceName());
+		dict.put("type", so.getServiceType());
 		Log.d(LCAT, dict.toString());
 
 		return dict;
